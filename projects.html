@@ -1,35 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Tanmay Dhar</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background-color: #0f0f1b; color: #fff; font-family: 'Inter', sans-serif; }
+    .navbar, .footer { background-color: #101010; color: #bbb; padding: 20px 40px; }
+    .logo { font-size: 24px; font-weight: 800; color: white; }
+    .nav-links { list-style: none; display: flex; gap: 30px; }
+    .nav-links a { text-decoration: none; color: #bbb; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .projects-section { padding: 60px 40px; max-width: 1200px; margin: auto; }
+    .section-title { font-size: 36px; margin-bottom: 30px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .proj-card { background: #1a1a2e; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .proj-card:hover { transform: translateY(-5px); }
+    .proj-card img { width: 100%; height: 180px; object-fit: cover; }
+    .proj-info { padding: 20px; }
+    .proj-info h3 { font-size: 20px; margin-bottom: 10px; }
+    .proj-info p { font-size: 16px; color: #ccc; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Tanmay Dhar</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>My Projects</h2>
-            <ul>
-                <li><a href="#">Project 1</a> - Description of Project 1.</li>
-                <li><a href="#">Project 2</a> - Description of Project 2.</li>
-                <li><a href="#">Project 3</a> - Description of Project 3.</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Your Name</p>
-    </footer>
+  <header class="navbar">
+    <div class="logo">Tanmay.D</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="projects-section">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <img src="proj1-thumb.jpg" alt="Google Play EDA">
+        <div class="proj-info">
+          <h3>Google Play Store EDA</h3>
+          <p>Python-based exploratory data analysis on user reviews and app performance.</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="proj2-thumb.jpg" alt="App Dashboard Tableau">
+        <div class="proj-info">
+          <h3>App Usage Dashboard</h3>
+          <p>Interactive Tableau dashboards analyzing app downloads and ratings.</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="proj3-thumb.jpg" alt="Bike Sharing ML">
+        <div class="proj-info">
+          <h3>Bike Sharing Demand Prediction</h3>
+          <p>Regression modeling to forecast urban bike demand trends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Tanmay Dhar</p>
+  </footer>
 </body>
 </html>
