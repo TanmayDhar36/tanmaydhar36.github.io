@@ -15,7 +15,7 @@
     .projects-section { padding: 60px 40px; max-width: 1200px; margin: auto; }
     .section-title { font-size: 36px; margin-bottom: 30px; }
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .proj-card { background: #1a1a2e; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .proj-card { background: #1a1a2e; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; cursor: pointer; }
     .proj-card:hover { transform: translateY(-5px); }
     .proj-card img { width: 100%; height: 180px; object-fit: cover; }
     .proj-info { padding: 20px; }
@@ -39,22 +39,21 @@
   <section class="projects-section">
     <h2 class="section-title">My Projects</h2>
     <div class="projects-grid">
-      <div class="proj-card">
-        <img src="Dashboard.png" alt="Google Play Store App Review Analysis">
+      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis','_blank')">
+        <img src="proj1-thumb.jpg" alt="Google Play EDA">
         <div class="proj-info">
-          <h3>Google Play Store App Review Analysis</h3>
-          <p>Python-based exploratory data analysis on user reviews and app performance & Tableau Dashboard.</p>
+        <h3>Google Play Store App Review Analysis</h3>
+        <p>Python-based exploratory data analysis on user reviews and app performance & Tableau Dashboard.</p>
         </div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card" onclick="window.open('https://public.tableau.com/app/profile/tanmay.dhar/viz/AppDashboard/Home','_blank')">
         <img src="proj2-thumb.jpg" alt="App Dashboard Tableau">
         <div class="proj-info">
           <h3>App Usage Dashboard</h3>
           <p>Interactive Tableau dashboards analyzing app downloads and ratings.</p>
-          <a href="https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis" target="_blank">View Project</a>
         </div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/bike-sharing-ml','_blank')">
         <img src="proj3-thumb.jpg" alt="Bike Sharing ML">
         <div class="proj-info">
           <h3>Bike Sharing Demand Prediction</h3>
