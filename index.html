@@ -1,34 +1,107 @@
-<!-- index.html - Home Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tanmay Dhar | Data Analyst</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #0f0f1b; color: #fff; }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0f0f1b;
+      padding: 20px 40px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #bbb;
+      font-weight: 500;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 40px;
+      background-color: #0f0f1b;
+    }
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+    }
+    .hero-text h2 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      color: #ccc;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #7a4fff;
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .hero-image {
+      flex: 1;
+      padding-left: 40px;
+    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .footer {
+      background-color: #101010;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
-    <div class="container">
-      <h1 class="logo">Tanmay Dhar</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+    <div class="logo">Tanmay.D</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <img src="WhatsApp Image 2025-05-29 at 13.39.37_932544be.jpg" alt="Tanmay Dhar" class="profile-img" />
-      <h2>Hi, I'm Tanmay 👋</h2>
-      <p>A Data Analyst passionate about turning data into insights with Python, SQL, Tableau, and Power BI.</p>
-      <a href="TanmayDharCV.pdf" class="btn" download>📄 Download My CV</a>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>I'm Tanmay Dhar.<br/>A Data Analyst<br/>based in Kolkata.</h2>
+      <p>I specialize in turning data into insights using Python, SQL, Tableau, and Power BI.</p>
+      <a href="TanmayDharCV.pdf" class="btn" download>Download My CV</a>
+    </div>
+    <div class="hero-image">
+      <img src="WhatsApp Image 2025-05-29 at 13.39.37_932544be.jpg" alt="Tanmay Dhar">
     </div>
   </section>
 
