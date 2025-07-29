@@ -5,6 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Tanmay Dhar</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #0f0f1b;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+    .navbar {
+      background-color: #101010;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin-left: auto;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #bbb;
+      font-weight: 500;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+    .projects-section {
+      padding: 60px 40px;
+    }
+    .section-title {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .proj-card {
+      background: #1a1a2e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .proj-card:hover {
+      transform: translateY(-5px);
+    }
+    .proj-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .proj-info {
+      padding: 20px;
+    }
+    .proj-info h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .proj-info p {
+      font-size: 15px;
+      color: #ccc;
+    }
+    .footer {
+      background-color: #101010;
+      text-align: center;
+      padding: 20px;
+      color: #bbb;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -22,48 +103,55 @@
   <section class="projects-section">
     <h2 class="section-title">My Projects</h2>
     <div class="projects-grid">
+
       <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Forecasting-India-s-EV-Future-A-Comprehensive-Market-Analytics-Study','_blank')">
-        <img src="proj-ev-thumb.jpg" alt="EV Project">
+        <img src="EV.jpeg" alt="EV Market Forecast">
         <div class="proj-info">
-          <h3>EV Market Forecast</h3>
-          <p>Analytics project forecasting India's Electric Vehicle future.</p>
+          <h3>Forecasting India's EV Future</h3>
+          <p>Comprehensive analytics study forecasting EV adoption trends in India.</p>
         </div>
       </div>
+
       <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/HAND-SIGN-LANGUAGE-DETECTION','_blank')">
-        <img src="proj-handsign-thumb.jpg" alt="Hand Sign">
+        <img src="HandSign.jpeg" alt="Hand Sign Language Detection">
         <div class="proj-info">
-          <h3>🤟 Hand Sign Detection</h3>
-          <p>Real-time ASL detection using OpenCV & MediaPipe.</p>
+          <h3>🤟 Hand Sign Language Detection</h3>
+          <p>Real-time ASL prediction using MediaPipe, OpenCV and ML models.</p>
         </div>
       </div>
+
       <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML-Case-Study-on-Water-Quality-Analysis','_blank')">
-        <img src="proj-water-thumb.jpg" alt="Water Quality">
+        <img src="WaterQuality.png" alt="Water Quality Analysis">
         <div class="proj-info">
           <h3>Water Quality Analysis</h3>
-          <p>ML case study predicting potability using water parameters.</p>
+          <p>ML case study predicting water potability based on chemical attributes.</p>
         </div>
       </div>
+
       <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML_Bike_Sharing_Demand_Prediction_Regression_Project','_blank')">
-        <img src="proj-bike-thumb.jpg" alt="Bike Prediction">
+        <img src="BikeShare.jpeg" alt="Bike Sharing Prediction">
         <div class="proj-info">
-          <h3>Bike Sharing Prediction</h3>
-          <p>ML regression model to forecast rental demand.</p>
+          <h3>Bike Sharing Demand Prediction</h3>
+          <p>Regression model to forecast hourly bike rentals based on weather.</p>
         </div>
       </div>
+
       <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Sales_Data_Analysis_Afame_Technology','_blank')">
-        <img src="proj-sales-thumb.jpg" alt="Sales Data">
+        <img src="Dashboard2.png" alt="Sales Analysis">
         <div class="proj-info">
           <h3>Sales Data Analysis</h3>
-          <p>Dashboard-driven insights for Afame Tech using Excel & Python.</p>
+          <p>Dashboard-driven insights from sales transactions using Python & Excel.</p>
         </div>
       </div>
+
       <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis','_blank')">
-        <img src="Dashboard.png" alt="Google Play App Review Analysis">
+        <img src="Dashboard.png" alt="Google Play EDA">
         <div class="proj-info">
           <h3>Google Play Store App Review Analysis</h3>
-          <p>Python-based exploratory data analysis on user reviews and app performance & Tableau Dashboard.</p>
+          <p>Python-based EDA and Tableau dashboards to uncover app feedback patterns.</p>
         </div>
       </div>
+
     </div>
   </section>
 
