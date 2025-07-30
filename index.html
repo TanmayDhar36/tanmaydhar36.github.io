@@ -2,111 +2,255 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tanmay Dhar | Data Analyst</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanmay Dhar | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #0f0f1b; color: #fff; }
-    .navbar {
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f1b;
+      color: #e5e7eb;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #0f0f1b;
-      padding: 20px 40px;
     }
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
+
     .nav-links a {
-      text-decoration: none;
-      color: #bbb;
-      font-weight: 500;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #fff;
-    }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px 40px;
-      background-color: #0f0f1b;
-    }
-    .hero-text {
-      flex: 1;
-      max-width: 600px;
-    }
-    .hero-text h2 {
-      font-size: 48px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-    .hero-text p {
       color: #ccc;
-      font-size: 18px;
-      margin-bottom: 20px;
+      margin-left: 1.5rem;
+      transition: 0.3s ease;
     }
-    .btn {
-      background-color: #7a4fff;
+
+    .nav-links a:hover {
       color: #fff;
-      padding: 12px 25px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
     }
-    .hero-image {
-      flex: 1;
-      padding-left: 40px;
+
+    .tube-name {
+      color: #fff;
+      text-shadow:
+        0 0 5px #c084fc,
+        0 0 10px #c084fc,
+        0 0 20px #c084fc,
+        0 0 40px #c084fc;
+      font-weight: 900;
     }
-    .hero-image img {
-      max-width: 100%;
+
+    .split-text {
+      display: inline-block;
+      position: relative;
+      font-weight: 700;
+      color: #38f8aa;
+      overflow: hidden;
+    }
+
+    .profile-pic {
+      width: 100%;
+      max-width: 460px;
       height: auto;
-      border-radius: 10px;
+      object-fit: cover;
+      border-radius: 0; /* Solid corners */
+      box-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
     }
-    .footer {
-      background-color: #101010;
-      text-align: center;
-      padding: 20px;
-      color: #888;
-      margin-top: 40px;
+
+    #particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    @keyframes snow {
+      0% { transform: translateY(0px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: snow linear infinite;
+    }
+
+    /* Typing Animation Styles */
+    .typing-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background-color: #38f8aa;
+      animation: blink 0.7s infinite;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
   </style>
 </head>
-<body>
-  <header class="navbar">
-    <div class="logo">Tanmay Dhar</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+
+<body class="bg-gradient-to-br from-black to-gray-900">
+  <!-- Particle Background -->
+  <canvas id="particle-bg"></canvas>
+
+  <!-- Header -->
+  <header>
+    <h1 class="text-white text-xl font-bold">Tanmay Dhar</h1>
+    <nav class="nav-links">
+      <a href="index.html" class="text-purple-400 font-semibold">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>I'm Tanmay Dhar.<br/>A Data Analyst<br/>based in Kolkata.</h2>
-      <p>I specialize in turning data into insights using Python, SQL, Tableau, and Power BI.</p>
-      <a href="TanmayDharCV.pdf" class="btn" download>Download My CV</a>
-    </div>
-    <div class="hero-image">
-      <img src="WhatsApp Image 2025-05-29 at 13.39.37_932544be.jpg" alt="Tanmay Dhar">
-    </div>
-  </section>
+  <!-- Hero Section -->
+  <main class="min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
+    <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+      <!-- Text -->
+      <div class="w-full lg:w-1/2 text-left">
+        <h1 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
+          <span class="typing-container">
+            <span id="typing-hi"></span>
+            <span class="split-text" id="typing-im">I'm</span>
+            <span class="cursor" id="cursor"></span>
+          </span><br>
+          <span class="tube-name text-6xl" id="typing-name"></span>
+        </h1>
+        <h2 class="text-xl sm:text-2xl text-gray-300 mb-4">Aspiring Data Analyst | MBA in Business Analytics & Data Science</h2>
+        <p class="text-gray-400 mb-6 max-w-xl">I bring insights to life with Python, SQL, Power BI, and more. I’m driven to make data work for real-world decisions.</p>
+        <a href="projects.html" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-3 px-6 rounded transition">Explore Projects</a>
+      </div>
 
-  <footer class="footer">
-    <p>© 2025 Tanmay Dhar</p>
-  </footer>
+      <!-- Image -->
+      <div class="w-full lg:w-1/2 flex justify-center">
+        <img src="profile.jpg" alt="Tanmay Dhar" class="profile-pic">
+      </div>
+    </section>
+  </main>
+
+  <!-- Background and Typing Animation -->
+  <script>
+    // Particle Animation
+    const canvas = document.getElementById("particle-bg");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 1.5;
+        this.speedY = Math.random() * 0.5 + 0.5;
+      }
+
+      update() {
+        this.y += this.speedY;
+        if (this.y > canvas.height) {
+          this.y = 0;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particles = [];
+      for (let i = 0; i < 200; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    // Snowflake Animation
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.style.width = `${Math.random() * 3 + 2}px`;
+      snowflake.style.height = snowflake.style.width;
+      snowflake.style.left = `${Math.random() * 100}vw`;
+      snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+
+    setInterval(createSnowflake, 200);
+
+    // Typing Animation for "Hi, I'm" and "Tanmay Dhar"
+    const hiText = "Hi, ";
+    const imText = "I'm";
+    const nameText = "Tanmay Dhar";
+
+    const hiElement = document.getElementById("typing-hi");
+    const imElement = document.getElementById("typing-im");
+    const nameElement = document.getElementById("typing-name");
+    const cursor = document.getElementById("cursor");
+
+    async function typeText(element, text, delay = 100) {
+      for (let i = 0; i < text.length; i++) {
+        element.textContent += text[i];
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+
+    async function startTyping() {
+      await typeText(hiElement, hiText);
+      imElement.style.display = "inline";
+      await typeText(nameElement, nameText);
+      cursor.style.display = "none";
+    }
+
+    imElement.style.display = "none";
+    startTyping();
+  </script>
 </body>
 </html>
