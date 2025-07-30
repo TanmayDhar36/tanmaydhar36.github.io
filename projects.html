@@ -36,24 +36,7 @@
       font-weight: bold;
       margin-bottom: 1rem;
       color: #fff;
-    }
-
-    @keyframes snow {
-      0% { transform: translateY(0px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: snow linear infinite;
-    }
-
-    .projects-section {
-      padding: 60px 40px;
+      text-align: center;
     }
 
     .projects-grid {
@@ -63,15 +46,17 @@
     }
 
     .proj-card {
-      background: #1a1a2e;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(192, 132, 252, 0.3); /* Shadow matching profile picture */
+      transition: all 0.3s ease;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     .proj-card:hover {
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
       transform: translateY(-5px);
     }
 
@@ -94,13 +79,27 @@
       font-size: 15px;
       color: #ccc;
     }
+
+    @keyframes snow {
+      0% { transform: translateY(0px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: snow linear infinite;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-black to-gray-900">
   <!-- Particle Background -->
   <canvas id="particle-bg"></canvas>
 
-  <!-- Navbar -->
+  <!-- Header -->
   <header class="w-full py-4">
     <div class="container mx-auto px-6 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold text-white">Tanmay Dhar</a>
@@ -114,65 +113,67 @@
   </header>
 
   <!-- Projects Section -->
-  <section class="projects-section pt-32">
-    <h2 class="section-title text-center">My Projects</h2>
-    <div class="projects-grid">
-      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Forecasting-India-s-EV-Future-A-Comprehensive-Market-Analytics-Study','_blank')">
-        <img src="EV.jpeg" alt="EV Market Forecast">
-        <div class="proj-info">
-          <h3>Forecasting India's EV Future</h3>
-          <p>Comprehensive analytics study forecasting EV adoption trends in India.</p>
+  <main class="container mx-auto px-6 pt-32 pb-16">
+    <section class="projects-section">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Forecasting-India-s-EV-Future-A-Comprehensive-Market-Analytics-Study','_blank')">
+          <img src="EV.jpeg" alt="EV Market Forecast">
+          <div class="proj-info">
+            <h3>Forecasting India's EV Future</h3>
+            <p>Comprehensive analytics study forecasting EV adoption trends in India.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/HAND-SIGN-LANGUAGE-DETECTION','_blank')">
-        <img src="HandSign.jpeg" alt="Hand Sign Language Detection">
-        <div class="proj-info">
-          <h3>🤟 Hand Sign Language Detection</h3>
-          <p>Real-time ASL prediction using MediaPipe, OpenCV and ML models.</p>
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/HAND-SIGN-LANGUAGE-DETECTION','_blank')">
+          <img src="HandSign.jpeg" alt="Hand Sign Language Detection">
+          <div class="proj-info">
+            <h3>🤟 Hand Sign Language Detection</h3>
+            <p>Real-time ASL prediction using MediaPipe, OpenCV and ML models.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML-Case-Study-on-Water-Quality-Analysis','_blank')">
-        <img src="WaterQuality.png" alt="Water Quality Analysis">
-        <div class="proj-info">
-          <h3>Water Quality Analysis</h3>
-          <p>ML case study predicting water potability based on chemical attributes.</p>
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML-Case-Study-on-Water-Quality-Analysis','_blank')">
+          <img src="WaterQuality.png" alt="Water Quality Analysis">
+          <div class="proj-info">
+            <h3>Water Quality Analysis</h3>
+            <p>ML case study predicting water potability based on chemical attributes.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML_Bike_Sharing_Demand_Prediction_Regression_Project','_blank')">
-        <img src="BikeShare.jpeg" alt="Bike Sharing Prediction">
-        <div class="proj-info">
-          <h3>Bike Sharing Demand Prediction</h3>
-          <p>Regression model to forecast hourly bike rentals based on weather.</p>
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML_Bike_Sharing_Demand_Prediction_Regression_Project','_blank')">
+          <img src="BikeShare.jpeg" alt="Bike Sharing Prediction">
+          <div class="proj-info">
+            <h3>Bike Sharing Demand Prediction</h3>
+            <p>Regression model to forecast hourly bike rentals based on weather.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Sales_Data_Analysis_Afame_Technology','_blank')">
-        <img src="Dashboard2.png" alt="Sales Analysis">
-        <div class="proj-info">
-          <h3>Sales Data Analysis</h3>
-          <p>Dashboard-driven insights from sales transactions using Python & Excel.</p>
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Sales_Data_Analysis_Afame_Technology','_blank')">
+          <img src="Dashboard2.png" alt="Sales Analysis">
+          <div class="proj-info">
+            <h3>Sales Data Analysis</h3>
+            <p>Dashboard-driven insights from sales transactions using Python & Excel.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis','_blank')">
-        <img src="Dashboard.png" alt="Google Play EDA">
-        <div class="proj-info">
-          <h3>Google Play Store App Review Analysis</h3>
-          <p>Python-based EDA and Tableau dashboards to uncover app feedback patterns.</p>
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis','_blank')">
+          <img src="Dashboard.png" alt="Google Play EDA">
+          <div class="proj-info">
+            <h3>Google Play Store App Review Analysis</h3>
+            <p>Python-based EDA and Tableau dashboards to uncover app feedback patterns.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="text-center py-6 text-gray-400 text-sm">
     © 2025 Tanmay Dhar. All rights reserved.
   </footer>
 
-  <!-- Particle Background Script -->
+  <!-- Particle and Snowflake Animation Script -->
   <script>
     const canvas = document.getElementById("particle-bg");
     const ctx = canvas.getContext("2d");
@@ -228,7 +229,6 @@
     init();
     animate();
 
-    // Snowflake Animation
     function createSnowflake() {
       const snowflake = document.createElement("div");
       snowflake.classList.add("snowflake");
