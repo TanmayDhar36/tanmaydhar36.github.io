@@ -80,7 +80,7 @@
       color: #ccc;
     }
 
-    @keyframes slideShow {
+    @keyframes fade {
       0% { opacity: 0; }
       20% { opacity: 1; }
       80% { opacity: 1; }
@@ -96,7 +96,7 @@
 
     .dashboard-slide.active {
       display: block;
-      animation: slideShow 12s infinite;
+      animation: fade 12s infinite;
     }
 
     @keyframes snow {
@@ -190,10 +190,10 @@
     <section class="dashboards-section mt-16">
       <h2 class="section-title">More Dashboards</h2>
       <div class="relative w-full overflow-hidden">
-        <img src="unemployment_dashboard.jpeg" alt="Unemployment Dashboard" class="dashboard-slide active" style="animation-delay: 0s;">
-        <img src="upi_transaction_dashboard.jpeg" alt="UPI Transaction Dashboard" class="dashboard-slide" style="animation-delay: 3s;">
-        <img src="orderflow_dashboard.jpeg" alt="Orderflow Dashboard" class="dashboard-slide" style="animation-delay: 6s;">
-        <img src="hr_analytics_dashboard.jpeg" alt="HR Analytics Dashboard" class="dashboard-slide" style="animation-delay: 9s;">
+        <img src="unemployment_dashboard.jpeg" alt="Unemployment Dashboard" class="dashboard-slide" data-index="0">
+        <img src="upi_transaction_dashboard.jpeg" alt="UPI Transaction Dashboard" class="dashboard-slide" data-index="1">
+        <img src="orderflow_dashboard.jpeg" alt="Orderflow Dashboard" class="dashboard-slide" data-index="2">
+        <img src="hr_analytics_dashboard.jpeg" alt="HR Analytics Dashboard" class="dashboard-slide" data-index="3">
       </div>
     </section>
   </main>
@@ -271,6 +271,28 @@
     }
 
     setInterval(createSnowflake, 200);
+
+    // Dashboard Slideshow Script
+    const slides = document.querySelectorAll('.dashboard-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Start slideshow
+    showSlide(currentSlide);
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
   </script>
 </body>
 </html>
