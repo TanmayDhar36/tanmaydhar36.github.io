@@ -9,10 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary-color: #38f8aa;
+      --accent-color: #c084fc;
+      --bg-dark: #0f0f1b;
+      --text-light: #e5e7eb;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0f0f1b;
-      color: #e5e7eb;
+      background: var(--bg-dark);
+      color: var(--text-light);
       margin: 0;
       overflow-x: hidden;
     }
@@ -25,7 +32,7 @@
       z-index: 100;
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -33,21 +40,21 @@
 
     .nav-links a {
       color: #ccc;
-      margin-left: 1.5rem;
-      transition: 0.3s ease;
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+      font-size: 1rem;
     }
 
     .nav-links a:hover {
-      color: #fff;
+      color: var(--primary-color);
     }
 
     .tube-name {
-      color: #fff;
+      color: var(--text-light);
       text-shadow:
-        0 0 5px #c084fc,
-        0 0 10px #c084fc,
-        0 0 20px #c084fc,
-        0 0 40px #c084fc;
+        0 0 5px var(--accent-color),
+        0 0 10px var(--accent-color),
+        0 0 20px var(--accent-color);
       font-weight: 900;
     }
 
@@ -55,17 +62,21 @@
       display: inline-block;
       position: relative;
       font-weight: 700;
-      color: #38f8aa;
-      overflow: hidden;
+      color: var(--primary-color);
     }
 
     .profile-pic {
       width: 100%;
-      max-width: 460px;
+      max-width: 400px;
       height: auto;
       object-fit: cover;
-      border-radius: 0; /* Solid corners */
-      box-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
     }
 
     #particle-bg {
@@ -78,20 +89,20 @@
     }
 
     @keyframes snow {
-      0% { transform: translateY(0px); opacity: 1; }
+      0% { transform: translateY(0); opacity: 0.7; }
       100% { transform: translateY(100vh); opacity: 0; }
     }
 
     .snowflake {
       position: fixed;
       top: -10px;
-      background: white;
+      background: var(--text-light);
       border-radius: 50%;
       opacity: 0.7;
       animation: snow linear infinite;
+      pointer-events: none;
     }
 
-    /* Typing Animation Styles */
     .typing-container {
       display: inline-block;
       position: relative;
@@ -100,8 +111,8 @@
     .cursor {
       display: inline-block;
       width: 2px;
-      height: 1em;
-      background-color: #38f8aa;
+      height: 1.2em;
+      background-color: var(--primary-color);
       animation: blink 0.7s infinite;
       vertical-align: middle;
       margin-left: 2px;
@@ -111,56 +122,95 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .profile-pic {
+        max-width: 300px;
+      }
+
+      .nav-links a {
+        margin-left: 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        margin: 0.25rem;
+        font-size: 0.85rem;
+      }
+
+      .profile-pic {
+        max-width: 250px;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-black to-gray-900">
   <!-- Particle Background -->
-  <canvas id="particle-bg"></canvas>
+  <canvas id="particle-bg" aria-hidden="true"></canvas>
 
   <!-- Header -->
-  <header>
-    <h1 class="text-white text-xl font-bold">Tanmay Dhar</h1>
-    <nav class="nav-links">
-      <a href="index.html" class="text-purple-400 font-semibold">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+  <header class="backdrop-blur-md">
+    <h1 class="text-white text-xl font-bold md:text-2xl">Tanmay Dhar</h1>
+    <nav class="nav-links" role="navigation">
+      <a href="index.html" class="text-purple-400 font-semibold hover:text-purple-300">Home</a>
+      <a href="about.html" class="hover:text-purple-300">About</a>
+      <a href="projects.html" class="hover:text-purple-300">Projects</a>
+      <a href="contact.html" class="hover:text-purple-300">Contact</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <main class="min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
-    <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+  <main class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 sm:px-6 lg:pt-24">
+    <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
       <!-- Text -->
-      <div class="w-full lg:w-1/2 text-left">
-        <h1 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
+      <div class="w-full lg:w-1/2 text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
           <span class="typing-container">
-            <span id="typing-hi"></span>
+            <span id="typing-hi" aria-label="Greeting"></span>
             <span class="split-text" id="typing-im">I'm</span>
-            <span class="cursor" id="cursor"></span>
+            <span class="cursor" id="cursor" aria-hidden="true"></span>
           </span><br>
-          <span class="tube-name text-6xl" id="typing-name"></span>
+          <span class="tube-name text-5xl sm:text-6xl lg:text-7xl" id="typing-name"></span>
         </h1>
-        <h2 class="text-xl sm:text-2xl text-gray-300 mb-4">Aspiring Data Analyst | MBA in Business Analytics & Data Science</h2>
-        <p class="text-gray-400 mb-6 max-w-xl">I bring insights to life with Python, SQL, Power BI, and more. I’m driven to make data work for real-world decisions.</p>
-        <a href="projects.html" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-3 px-6 rounded transition">Explore Projects</a>
+        <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-3 sm:mb-4">Aspiring Data Analyst | MBA in Business Analytics & Data Science</h2>
+        <p class="text-gray-400 mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">I bring insights to life with Python, SQL, Power BI, and more. I’m driven to make data work for real-world decisions.</p>
+        <a href="projects.html" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-2.5 px-5 sm:py-3 sm:px-6 rounded transition duration-300">Explore Projects</a>
       </div>
 
       <!-- Image -->
       <div class="w-full lg:w-1/2 flex justify-center">
-        <img src="profile.jpg" alt="Tanmay Dhar" class="profile-pic">
+        <img src="profile.jpg" alt="Tanmay Dhar, Data Analyst" class="profile-pic" loading="lazy">
       </div>
     </section>
   </main>
 
-  <!-- Background and Typing Animation -->
+  <!-- Background and Animations -->
   <script>
     // Particle Animation
     const canvas = document.getElementById("particle-bg");
     const ctx = canvas.getContext("2d");
 
     let particles = [];
+    const isMobile = window.innerWidth <= 640;
+    const particleCount = isMobile ? 100 : 200;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -172,8 +222,8 @@
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 1.5;
-        this.speedY = Math.random() * 0.5 + 0.5;
+        this.radius = Math.random() * (isMobile ? 1 : 1.5);
+        this.speedY = Math.random() * 0.5 + (isMobile ? 0.3 : 0.5);
       }
 
       update() {
@@ -194,14 +244,14 @@
 
     function init() {
       particles = [];
-      for (let i = 0; i < 200; i++) {
+      for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
       }
     }
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
+      particles.forEach(p => {
         p.update();
         p.draw();
       });
@@ -215,17 +265,18 @@
     function createSnowflake() {
       const snowflake = document.createElement("div");
       snowflake.classList.add("snowflake");
-      snowflake.style.width = `${Math.random() * 3 + 2}px`;
-      snowflake.style.height = snowflake.style.width;
+      const size = Math.random() * (isMobile ? 2 : 3) + 2;
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
       snowflake.style.left = `${Math.random() * 100}vw`;
-      snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      snowflake.style.animationDuration = `${Math.random() * 5 + (isMobile ? 6 : 5)}s`;
       document.body.appendChild(snowflake);
       setTimeout(() => snowflake.remove(), 10000);
     }
 
-    setInterval(createSnowflake, 200);
+    setInterval(createSnowflake, isMobile ? 300 : 200);
 
-    // Typing Animation for "Hi, I'm" and "Tanmay Dhar"
+    // Typing Animation
     const hiText = "Hi, ";
     const imText = "I'm";
     const nameText = "Tanmay Dhar";
@@ -236,16 +287,16 @@
     const cursor = document.getElementById("cursor");
 
     async function typeText(element, text, delay = 100) {
-      for (let i = 0; i < text.length; i++) {
-        element.textContent += text[i];
+      for (let char of text) {
+        element.textContent += char;
         await new Promise(resolve => setTimeout(resolve, delay));
       }
     }
 
     async function startTyping() {
-      await typeText(hiElement, hiText);
+      await typeText(hiElement, hiText, 120);
       imElement.style.display = "inline";
-      await typeText(nameElement, nameText);
+      await typeText(nameElement, nameText, 120);
       cursor.style.display = "none";
     }
 
