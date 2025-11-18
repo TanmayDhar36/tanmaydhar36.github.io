@@ -53,6 +53,10 @@
       overflow: hidden;
       transition: all 0.3s ease;
       cursor: pointer;
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
     }
 
     .proj-card:hover {
@@ -60,25 +64,51 @@
       transform: translateY(-5px);
     }
 
-    .proj-card img {
+    .proj-card img.card-thumb {
       width: 100%;
       height: 180px;
       object-fit: cover;
+      display: block;
     }
 
     .proj-info {
-      padding: 20px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1 1 auto;
     }
 
     .proj-info h3 {
       font-size: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
 
     .proj-info p {
       font-size: 15px;
       color: #ccc;
+      margin: 0;
+      flex: 1 1 auto;
     }
+
+    .proj-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-link {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      color: #e6e6e6;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-link:hover { transform: translateY(-3px); }
 
     @keyframes morphFade {
       0% {
@@ -152,52 +182,97 @@
       <h2 class="section-title">My Projects</h2>
       <div class="projects-grid">
         <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Forecasting-India-s-EV-Future-A-Comprehensive-Market-Analytics-Study','_blank')">
-          <img src="EV.jpeg" alt="EV Market Forecast">
+          <img src="EV.jpeg" alt="EV Market Forecast" class="card-thumb">
           <div class="proj-info">
             <h3>Forecasting India's EV Future</h3>
             <p>Comprehensive analytics study forecasting EV adoption trends in India.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/Forecasting-India-s-EV-Future-A-Comprehensive-Market-Analytics-Study" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
 
-        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/HAND-SIGN-LANGUAGE-DETECTION','_blank')">
-          <img src="HandSign.jpeg" alt="Hand Sign Language Detection">
+        <div class="proj-card">
+          <img src="HandSign.jpeg" alt="Hand Sign Language Detection" class="card-thumb">
           <div class="proj-info">
             <h3>🤟 Hand Sign Language Detection</h3>
-            <p>Real-time ASL prediction using MediaPipe, OpenCV and ML models.</p>
+            <p>Real-time ASL prediction using MediaPipe, OpenCV and ML models. Deployed with Gradio for webcam demo.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/HAND-SIGN-LANGUAGE-DETECTION" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
 
-        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML-Case-Study-on-Water-Quality-Analysis','_blank')">
-          <img src="WaterQuality.png" alt="Water Quality Analysis">
+        <div class="proj-card">
+          <img src="WaterQuality.png" alt="Water Quality Analysis" class="card-thumb">
           <div class="proj-info">
             <h3>Water Quality Analysis</h3>
             <p>ML case study predicting water potability based on chemical attributes.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/ML-Case-Study-on-Water-Quality-Analysis" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
 
-        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/ML_Bike_Sharing_Demand_Prediction_Regression_Project','_blank')">
-          <img src="BikeShare.jpeg" alt="Bike Sharing Prediction">
+        <div class="proj-card">
+          <img src="BikeShare.jpeg" alt="Bike Sharing Prediction" class="card-thumb">
           <div class="proj-info">
             <h3>Bike Sharing Demand Prediction</h3>
             <p>Regression model to forecast hourly bike rentals based on weather.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/ML_Bike_Sharing_Demand_Prediction_Regression_Project" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
 
-        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Sales_Data_Analysis_Afame_Technology','_blank')">
-          <img src="Dashboard2.png" alt="Sales Analysis">
+        <div class="proj-card">
+          <img src="Dashboard2.png" alt="Sales Analysis" class="card-thumb">
           <div class="proj-info">
             <h3>Sales Data Analysis</h3>
-            <p>Tablaue Dashboard-driven insights from sales transactions using python & Tablaue.</p>
+            <p>Tableau dashboard-driven insights from sales transactions using Python & Tableau.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/Sales_Data_Analysis_Afame_Technology" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
 
-        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis','_blank')">
-          <img src="Dashboard.png" alt="Google Play EDA">
+        <div class="proj-card">
+          <img src="Dashboard.png" alt="Google Play EDA" class="card-thumb">
           <div class="proj-info">
             <h3>Google Play Store App Review Analysis</h3>
             <p>Python-based EDA and Tableau dashboards to uncover app feedback patterns.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
+
+        <!-- NEW: AQI Prediction -->
+        <div class="proj-card">
+          <img src="AQI.jpeg" alt="India AQI Prediction" class="card-thumb">
+          <div class="proj-info">
+            <h3>India's Air Quality Index Prediction</h3>
+            <p>Time-series & ML models to forecast AQI across major Indian cities. Includes dashboard and model explainability.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/AQI_Prediction" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn-link" href="https://tanmaydhar36-aqipredindiatanmay.hf.space/" target="_blank" rel="noopener">Try Live</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW: Twitter Sentiment -->
+        <div class="proj-card">
+          <img src="TwitterSentiment.jpeg" alt="Twitter Sentiment Analysis" class="card-thumb">
+          <div class="proj-info">
+            <h3>Twitter Sentiment Analysis</h3>
+            <p>Sentiment classification of tweets using NLP pipelines. Live demo shows sentiment distribution and word clouds.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/TwitterSentimentAnalysis" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn-link" href="https://twettersentimentanalysis.onrender.com/" target="_blank" rel="noopener">Try Live</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
