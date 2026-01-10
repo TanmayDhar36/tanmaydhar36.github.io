@@ -3,9 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tanmay Dhar | Home</title>
+
+  <title>Tanmay Dhar | Data Analyst Portfolio</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Tanmay Dhar | Aspiring Data Analyst with MBA in Business Analytics & Data Science. Skilled in Python, SQL, Power BI, Excel.">
+  <meta name="keywords" content="Tanmay Dhar, Data Analyst, Business Analytics, Data Science, Portfolio">
+  <meta name="author" content="Tanmay Dhar">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXPZ2M5YSY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RXPZ2M5YSY');
+  </script>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -123,98 +144,73 @@
       50% { opacity: 0; }
     }
 
-    /* Responsive Styles */
     @media (max-width: 1024px) {
-      .profile-pic {
-        max-width: 300px;
-      }
-
-      .nav-links a {
-        margin-left: 0.75rem;
-        font-size: 0.9rem;
-      }
+      .profile-pic { max-width: 300px; }
+      .nav-links a { font-size: 0.9rem; }
     }
 
     @media (max-width: 640px) {
       header {
         flex-direction: column;
         gap: 0.5rem;
-        padding: 0.75rem 1rem;
       }
-
-      .nav-links {
-        display: flex;
-        gap: 0.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .nav-links a {
-        margin: 0.25rem;
-        font-size: 0.85rem;
-      }
-
-      .profile-pic {
-        max-width: 250px;
-      }
+      .nav-links { flex-wrap: wrap; }
+      .profile-pic { max-width: 250px; }
     }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-black to-gray-900">
-  <!-- Particle Background -->
+
   <canvas id="particle-bg" aria-hidden="true"></canvas>
 
-  <!-- Header -->
-  <header class="backdrop-blur-md">
+  <header>
     <h1 class="text-white text-xl font-bold md:text-2xl">Tanmay Dhar</h1>
-    <nav class="nav-links" role="navigation">
-      <a href="index.html" class="text-purple-400 font-semibold hover:text-purple-300">Home</a>
-      <a href="about.html" class="hover:text-purple-300">About</a>
-      <a href="projects.html" class="hover:text-purple-300">Projects</a>
-      <a href="contact.html" class="hover:text-purple-300">Contact</a>
+    <nav class="nav-links">
+      <a href="index.html" class="text-purple-400 font-semibold">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <main class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 sm:px-6 lg:pt-24">
-    <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
-      <!-- Text -->
-      <div class="w-full lg:w-1/2 text-center lg:text-left">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-          <span class="typing-container">
-            <span id="typing-hi" aria-label="Greeting"></span>
-            <span class="split-text" id="typing-im">I'm</span>
-            <span class="cursor" id="cursor" aria-hidden="true"></span>
-          </span><br>
-          <span class="tube-name text-5xl sm:text-6xl lg:text-7xl" id="typing-name"></span>
+  <main class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4">
+    <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+      <div class="lg:w-1/2 text-center lg:text-left">
+        <h1 class="text-5xl font-bold mb-6">
+          <span id="typing-hi"></span>
+          <span class="split-text" id="typing-im">I'm</span>
+          <span class="cursor" id="cursor"></span><br>
+          <span class="tube-name" id="typing-name"></span>
         </h1>
-        <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-3 sm:mb-4">Aspiring Data Analyst | MBA in Business Analytics & Data Science</h2>
-        <p class="text-gray-400 mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">I bring insights to life with Python, SQL, Power BI, and more. I’m driven to make data work for real-world decisions.</p>
-        <a href="projects.html" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-2.5 px-5 sm:py-3 sm:px-6 rounded transition duration-300">Explore Projects</a>
+        <h2 class="text-xl text-gray-300 mb-4">
+          Aspiring Data Analyst | MBA in Business Analytics & Data Science
+        </h2>
+        <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
+          I bring insights to life with Python, SQL, Power BI, and Excel to drive smarter business decisions.
+        </p>
+        <a href="projects.html" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded text-white">
+          Explore Projects
+        </a>
       </div>
 
-      <!-- Image -->
-      <div class="w-full lg:w-1/2 flex justify-center">
-        <img src="profile.jpg" alt="Tanmay Dhar, Data Analyst" class="profile-pic" loading="lazy">
+      <div class="lg:w-1/2 flex justify-center">
+        <img src="profile.jpg" alt="Tanmay Dhar Data Analyst" class="profile-pic" loading="lazy">
       </div>
     </section>
   </main>
 
-  <!-- Background and Animations -->
   <script>
-    // Particle Animation
     const canvas = document.getElementById("particle-bg");
     const ctx = canvas.getContext("2d");
-
     let particles = [];
     const isMobile = window.innerWidth <= 640;
     const particleCount = isMobile ? 100 : 200;
 
-    const resize = () => {
+    function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    };
+    }
     window.addEventListener("resize", resize);
     resize();
 
@@ -222,86 +218,55 @@
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * (isMobile ? 1 : 1.5);
-        this.speedY = Math.random() * 0.5 + (isMobile ? 0.3 : 0.5);
+        this.radius = Math.random() * 1.5;
+        this.speedY = Math.random() * 0.7;
       }
-
       update() {
         this.y += this.speedY;
-        if (this.y > canvas.height) {
-          this.y = 0;
-          this.x = Math.random() * canvas.width;
-        }
+        if (this.y > canvas.height) this.y = 0;
       }
-
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+        ctx.fillStyle = "rgba(255,255,255,0.6)";
         ctx.fill();
       }
     }
 
     function init() {
       particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
+      for (let i = 0; i < particleCount; i++) particles.push(new Particle());
     }
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
+      particles.forEach(p => { p.update(); p.draw(); });
       requestAnimationFrame(animate);
     }
 
     init();
     animate();
 
-    // Snowflake Animation
-    function createSnowflake() {
-      const snowflake = document.createElement("div");
-      snowflake.classList.add("snowflake");
-      const size = Math.random() * (isMobile ? 2 : 3) + 2;
-      snowflake.style.width = `${size}px`;
-      snowflake.style.height = `${size}px`;
-      snowflake.style.left = `${Math.random() * 100}vw`;
-      snowflake.style.animationDuration = `${Math.random() * 5 + (isMobile ? 6 : 5)}s`;
-      document.body.appendChild(snowflake);
-      setTimeout(() => snowflake.remove(), 10000);
-    }
+    const hi = "Hi, ";
+    const name = "Tanmay Dhar";
+    let hiEl = document.getElementById("typing-hi");
+    let nameEl = document.getElementById("typing-name");
+    let cursor = document.getElementById("cursor");
 
-    setInterval(createSnowflake, isMobile ? 300 : 200);
-
-    // Typing Animation
-    const hiText = "Hi, ";
-    const imText = "I'm";
-    const nameText = "Tanmay Dhar";
-
-    const hiElement = document.getElementById("typing-hi");
-    const imElement = document.getElementById("typing-im");
-    const nameElement = document.getElementById("typing-name");
-    const cursor = document.getElementById("cursor");
-
-    async function typeText(element, text, delay = 100) {
-      for (let char of text) {
-        element.textContent += char;
-        await new Promise(resolve => setTimeout(resolve, delay));
+    async function type(el, text) {
+      for (let c of text) {
+        el.textContent += c;
+        await new Promise(r => setTimeout(r, 120));
       }
     }
 
-    async function startTyping() {
-      await typeText(hiElement, hiText, 120);
-      imElement.style.display = "inline";
-      await typeText(nameElement, nameText, 120);
+    async function start() {
+      await type(hiEl, hi);
+      await type(nameEl, name);
       cursor.style.display = "none";
     }
-
-    imElement.style.display = "none";
-    startTyping();
+    start();
   </script>
+
 </body>
 </html>
