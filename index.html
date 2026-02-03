@@ -1,253 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tanmay Dhar | Portfolio</title>
 
-  <title>Tanmay Dhar | Portfolio</title>
+<!-- SEO -->
+<meta name="description" content="Tanmay Dhar | Data Analyst | Business Analytics & Data Science">
+<meta name="author" content="Tanmay Dhar">
 
-  <!-- SEO -->
-  <meta name="description" content="Tanmay Dhar | Aspiring Data Analyst with MBA in Business Analytics & Data Science. Skilled in Python, SQL, Power BI, Excel.">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RXPZ2M5YSY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RXPZ2M5YSY');
+</script>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXPZ2M5YSY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RXPZ2M5YSY');
-  </script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary-color: #38f8aa;
+  --accent-color: #c084fc;
+  --bg-dark: #0f0f1b;
+  --text-light: #e5e7eb;
+}
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    :root {
-      --primary-color: #38f8aa;
-      --accent-color: #c084fc;
-      --bg-dark: #0f0f1b;
-      --text-light: #e5e7eb;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  margin: 0;
+  overflow-x: hidden;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-      margin: 0;
-      overflow-x: hidden;
-    }
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-    }
+.nav-links a {
+  color: #ccc;
+  margin-left: 1rem;
+  font-size: 0.95rem;
+}
+.nav-links a:hover {
+  color: var(--primary-color);
+}
 
-    .tube-name {
-      text-shadow:
-        0 0 5px var(--accent-color),
-        0 0 15px var(--accent-color);
-    }
+/* ================= TEXT ================= */
+.split-text {
+  color: var(--primary-color);
+  font-weight: 700;
+}
 
-    /* Avatar */
-    .avatar-wrapper {
-      position: relative;
-      width: 220px;
-      height: 220px;
-    }
+.tube-name {
+  font-weight: 800;
+  text-shadow:
+    0 0 6px var(--accent-color),
+    0 0 14px var(--accent-color);
+}
 
-    .light-ring {
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      background: conic-gradient(
-        transparent,
-        var(--primary-color),
-        var(--accent-color),
-        transparent
-      );
-      filter: blur(14px);
-      animation: spin 6s linear infinite;
-    }
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--primary-color);
+  animation: blink 0.7s infinite;
+  vertical-align: middle;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
-    .profile-circle {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      position: relative;
-      z-index: 1;
-    }
+/* ================= AVATAR ================= */
+.avatar-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
 
-    @media (min-width: 1024px) {
-      .avatar-wrapper {
-        width: 300px;
-        height: 300px;
-      }
-      .light-ring {
-        inset: -25px;
-        filter: blur(18px);
-      }
-    }
+.light-ring {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent,
+    var(--primary-color),
+    var(--accent-color),
+    transparent
+  );
+  filter: blur(18px);
+  animation: spin 6s linear infinite;
+}
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+.profile-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 30px rgba(192,132,252,0.45);
+}
 
-    #particle-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-    }
-  </style>
+@media (min-width: 1024px) {
+  .avatar-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+  .light-ring {
+    inset: -35px;
+    filter: blur(22px);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ================= PARTICLE BG ================= */
+#particle-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  will-change: transform;
+}
+</style>
 </head>
 
-<body>
+<body class="bg-gradient-to-br from-black to-gray-900">
 
 <canvas id="particle-bg"></canvas>
 
-<!-- HEADER -->
-<header class="px-4 py-3 flex items-center justify-between">
-  <h1 class="font-bold text-white text-lg">Tanmay Dhar</h1>
-
-  <!-- Desktop Nav -->
-  <nav class="hidden md:flex gap-6 text-gray-300">
-    <a href="index.html" class="text-purple-400 font-semibold">Home</a>
+<header>
+  <h1 class="font-bold text-xl">Tanmay Dhar</h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
-
-  <!-- Mobile Menu Button -->
-  <button id="menuBtn" class="md:hidden text-white text-xl">
-    <i class="fas fa-bars"></i>
-  </button>
 </header>
 
-<!-- MOBILE MENU (FIXED) -->
-<div id="mobileMenu"
-     class="fixed inset-0 bg-[#0f0f1b] hidden flex-col items-center justify-center gap-8 text-2xl z-[999]">
+<main class="min-h-screen flex items-center justify-center pt-24 px-6">
+<section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
 
-  <a href="index.html" class="text-purple-400">Home</a>
-  <a href="about.html" class="text-white">About</a>
-  <a href="projects.html" class="text-white">Projects</a>
-  <a href="contact.html" class="text-white">Contact</a>
-</div>
+  <!-- TEXT -->
+  <div class="lg:w-1/2 text-center lg:text-left">
+    <h1 class="text-5xl font-bold mb-6">
+      <span id="typing-hi"></span>
+      <span class="split-text" id="typing-im"></span>
+      <span class="cursor" id="cursor"></span><br>
+      <span class="tube-name" id="typing-name"></span>
+    </h1>
 
-<!-- MAIN -->
-<main class="min-h-screen flex items-center justify-center pt-28 px-4">
-  <section class="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12">
+    <h2 class="text-xl text-gray-300 mb-4">
+      MBA in Business Analytics & Data Science
+    </h2>
 
-    <!-- Text -->
-    <div class="lg:w-1/2 text-center lg:text-left">
-      <h1 class="font-bold mb-4" style="font-size:clamp(2.2rem,6vw,3.5rem)">
-        <span id="typing-hi"></span>
-        <span class="text-green-400">I'm</span><br>
-        <span class="tube-name" id="typing-name"></span>
-      </h1>
+    <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
+      I turn raw data into actionable insights using Python, SQL, Excel, Power BI & Machine Learning.
+    </p>
 
-      <h2 class="text-gray-300 mb-4">
-        MBA in Business Analytics & Data Science
-      </h2>
+    <a href="projects.html"
+       class="inline-block bg-purple-600 hover:bg-purple-500 transition px-6 py-3 rounded-lg text-white font-semibold shadow-lg">
+      Explore Projects
+    </a>
+  </div>
 
-      <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
-        I turn raw data into actionable insights using Python, SQL,
-        Excel, Power BI, and Machine Learning.
-      </p>
-
-      <a href="projects.html"
-         class="bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-full text-white inline-block">
-        Explore Projects
-      </a>
+  <!-- AVATAR -->
+  <div class="lg:w-1/2 flex justify-center">
+    <div class="avatar-wrapper">
+      <div class="light-ring"></div>
+      <img src="profile.jpg" alt="Tanmay Dhar" class="profile-circle">
     </div>
+  </div>
 
-    <!-- Avatar -->
-    <div class="lg:w-1/2 flex justify-center">
-      <div class="avatar-wrapper">
-        <div class="light-ring"></div>
-        <img src="profile.jpg" class="profile-circle" alt="Tanmay Dhar">
-      </div>
-    </div>
-
-  </section>
+</section>
 </main>
 
-<!-- JS -->
 <script>
-  // Mobile Menu
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-  menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
+/* ================= PARTICLES (STABLE) ================= */
+const canvas = document.getElementById("particle-bg");
+const ctx = canvas.getContext("2d");
 
-  // Typing
-  const hiEl = document.getElementById("typing-hi");
-  const nameEl = document.getElementById("typing-name");
+let particles = [];
+const count = window.innerWidth < 640 ? 60 : 120;
 
-  async function type(el, text) {
-    for (let c of text) {
-      el.textContent += c;
-      await new Promise(r => setTimeout(r, 120));
-    }
+function setCanvasSize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+setCanvasSize();
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.r = Math.random() * 1.4;
+    this.s = Math.random() * 0.6;
   }
-  (async () => {
-    await type(hiEl, "Hi, ");
-    await type(nameEl, "Tanmay Dhar");
-  })();
-
-  // Particles
-  const canvas = document.getElementById("particle-bg");
-  const ctx = canvas.getContext("2d");
-  let particles = [];
-
-  function resize() {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+  update() {
+    this.y += this.s;
+    if (this.y > canvas.height) this.y = 0;
   }
-  resize();
-  window.onresize = resize;
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.r = Math.random() * 1.5;
-      this.s = Math.random() * 0.6;
-    }
-    update() {
-      this.y += this.s;
-      if (this.y > canvas.height) this.y = 0;
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,255,255,0.6)";
-      ctx.fill();
-    }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255,255,255,0.6)";
+    ctx.fill();
   }
+}
 
-  function init() {
-    particles = [];
-    const count = innerWidth < 640 ? 100 : 200;
-    for (let i = 0; i < count; i++) particles.push(new Particle());
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
   }
+}
+initParticles();
 
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animate);
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+/* ================= TYPING ================= */
+const hiText = "Hi, ";
+const imText = "I'm ";
+const nameText = "Tanmay Dhar";
+
+const hiEl = document.getElementById("typing-hi");
+const imEl = document.getElementById("typing-im");
+const nameEl = document.getElementById("typing-name");
+const cursor = document.getElementById("cursor");
+
+async function type(el, text) {
+  for (let c of text) {
+    el.textContent += c;
+    await new Promise(r => setTimeout(r, 120));
   }
+}
 
-  init();
-  animate();
+(async () => {
+  await type(hiEl, hiText);
+  await type(imEl, imText);
+  await type(nameEl, nameText);
+  cursor.style.display = "none";
+})();
 </script>
 
 </body>
