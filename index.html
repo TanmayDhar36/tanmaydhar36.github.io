@@ -8,8 +8,6 @@
 
   <!-- SEO -->
   <meta name="description" content="Tanmay Dhar | Aspiring Data Analyst with MBA in Business Analytics & Data Science. Skilled in Python, SQL, Power BI, Excel.">
-  <meta name="keywords" content="Tanmay Dhar, Data Analyst, Business Analytics, Data Science, Portfolio">
-  <meta name="author" content="Tanmay Dhar">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXPZ2M5YSY"></script>
@@ -24,35 +22,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #38f8aa;
-      --accent: #c084fc;
-      --bg: #0f0f1b;
-      --text: #e5e7eb;
+      --primary-color: #38f8aa;
+      --accent-color: #c084fc;
+      --bg-dark: #0f0f1b;
+      --text-light: #e5e7eb;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg-dark);
+      color: var(--text-light);
+      margin: 0;
       overflow-x: hidden;
     }
 
-    /* Header */
     header {
-      backdrop-filter: blur(12px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
     }
 
     .tube-name {
-      text-shadow: 0 0 5px var(--accent),
-                   0 0 15px var(--accent),
-                   0 0 30px var(--accent);
+      text-shadow:
+        0 0 5px var(--accent-color),
+        0 0 15px var(--accent-color);
     }
 
     /* Avatar */
@@ -66,7 +69,12 @@
       position: absolute;
       inset: -20px;
       border-radius: 50%;
-      background: conic-gradient(transparent, var(--primary), var(--accent), transparent);
+      background: conic-gradient(
+        transparent,
+        var(--primary-color),
+        var(--accent-color),
+        transparent
+      );
       filter: blur(14px);
       animation: spin 6s linear infinite;
     }
@@ -78,7 +86,6 @@
       object-fit: cover;
       position: relative;
       z-index: 1;
-      box-shadow: 0 0 25px rgba(192,132,252,.5);
     }
 
     @media (min-width: 1024px) {
@@ -96,20 +103,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Cursor */
-    .cursor {
-      width: 2px;
-      height: 1.2em;
-      background: var(--primary);
-      display: inline-block;
-      animation: blink .8s infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    /* Particle canvas */
     #particle-bg {
       position: fixed;
       inset: 0;
@@ -120,12 +113,11 @@
 
 <body>
 
-<!-- Particle Background -->
 <canvas id="particle-bg"></canvas>
 
-<!-- Header -->
-<header class="fixed top-0 w-full z-50 bg-black/40 px-4 py-3 flex items-center justify-between">
-  <h1 class="font-bold text-lg">Tanmay Dhar</h1>
+<!-- HEADER -->
+<header class="px-4 py-3 flex items-center justify-between">
+  <h1 class="font-bold text-white text-lg">Tanmay Dhar</h1>
 
   <!-- Desktop Nav -->
   <nav class="hidden md:flex gap-6 text-gray-300">
@@ -135,21 +127,23 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Mobile Button -->
-  <button id="menuBtn" class="md:hidden text-xl">
+  <!-- Mobile Menu Button -->
+  <button id="menuBtn" class="md:hidden text-white text-xl">
     <i class="fas fa-bars"></i>
   </button>
 </header>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="fixed inset-0 bg-black/90 hidden flex-col items-center justify-center gap-8 text-xl z-40">
+<!-- MOBILE MENU (FIXED) -->
+<div id="mobileMenu"
+     class="fixed inset-0 bg-[#0f0f1b] hidden flex-col items-center justify-center gap-8 text-2xl z-[999]">
+
   <a href="index.html" class="text-purple-400">Home</a>
-  <a href="about.html">About</a>
-  <a href="projects.html">Projects</a>
-  <a href="contact.html">Contact</a>
+  <a href="about.html" class="text-white">About</a>
+  <a href="projects.html" class="text-white">Projects</a>
+  <a href="contact.html" class="text-white">Contact</a>
 </div>
 
-<!-- Main -->
+<!-- MAIN -->
 <main class="min-h-screen flex items-center justify-center pt-28 px-4">
   <section class="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12">
 
@@ -166,12 +160,12 @@
       </h2>
 
       <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
-        I turn raw data into actionable insights using Python, SQL, Excel,
-        Power BI, Machine Learning and Business Intelligence.
+        I turn raw data into actionable insights using Python, SQL,
+        Excel, Power BI, and Machine Learning.
       </p>
 
       <a href="projects.html"
-         class="inline-block bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-full text-white">
+         class="bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-full text-white inline-block">
         Explore Projects
       </a>
     </div>
@@ -180,23 +174,21 @@
     <div class="lg:w-1/2 flex justify-center">
       <div class="avatar-wrapper">
         <div class="light-ring"></div>
-        <img src="profile.jpg" alt="Tanmay Dhar" class="profile-circle">
+        <img src="profile.jpg" class="profile-circle" alt="Tanmay Dhar">
       </div>
     </div>
 
   </section>
 </main>
 
-<!-- Scripts -->
+<!-- JS -->
 <script>
-  /* Mobile menu */
+  // Mobile Menu
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
 
-  /* Typing */
-  const hiText = "Hi, ";
-  const nameText = "Tanmay Dhar";
+  // Typing
   const hiEl = document.getElementById("typing-hi");
   const nameEl = document.getElementById("typing-name");
 
@@ -207,11 +199,11 @@
     }
   }
   (async () => {
-    await type(hiEl, hiText);
-    await type(nameEl, nameText);
+    await type(hiEl, "Hi, ");
+    await type(nameEl, "Tanmay Dhar");
   })();
 
-  /* Particles */
+  // Particles
   const canvas = document.getElementById("particle-bg");
   const ctx = canvas.getContext("2d");
   let particles = [];
@@ -220,15 +212,15 @@
     canvas.width = innerWidth;
     canvas.height = innerHeight;
   }
-  window.onresize = resize;
   resize();
+  window.onresize = resize;
 
   class Particle {
     constructor() {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
       this.r = Math.random() * 1.5;
-      this.s = Math.random() * .6;
+      this.s = Math.random() * 0.6;
     }
     update() {
       this.y += this.s;
@@ -237,7 +229,7 @@
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,255,255,.6)";
+      ctx.fillStyle = "rgba(255,255,255,0.6)";
       ctx.fill();
     }
   }
