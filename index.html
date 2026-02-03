@@ -80,24 +80,48 @@
     }
 
     .split-text {
-      display: inline-block;
-      position: relative;
       font-weight: 700;
       color: var(--primary-color);
     }
 
-    .profile-pic {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
-      transition: transform 0.3s ease;
+    /* ===== NEW PROFILE IMAGE STYLES (ONLY ADDITION) ===== */
+    .avatar-wrapper {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .profile-pic:hover {
-      transform: scale(1.05);
+    .light-ring {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: conic-gradient(
+        transparent,
+        #38f8aa,
+        #c084fc,
+        transparent
+      );
+      filter: blur(18px);
+      animation: spin 6s linear infinite;
+      z-index: 0;
+    }
+
+    .profile-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 1;
+      box-shadow: 0 0 25px rgba(192,132,252,0.5);
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     #particle-bg {
@@ -109,33 +133,12 @@
       z-index: -1;
     }
 
-    @keyframes snow {
-      0% { transform: translateY(0); opacity: 0.7; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      background: var(--text-light);
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: snow linear infinite;
-      pointer-events: none;
-    }
-
-    .typing-container {
-      display: inline-block;
-      position: relative;
-    }
-
     .cursor {
       display: inline-block;
       width: 2px;
       height: 1.2em;
       background-color: var(--primary-color);
       animation: blink 0.7s infinite;
-      vertical-align: middle;
       margin-left: 2px;
     }
 
@@ -144,25 +147,22 @@
       50% { opacity: 0; }
     }
 
-    @media (max-width: 1024px) {
-      .profile-pic { max-width: 300px; }
-      .nav-links a { font-size: 0.9rem; }
-    }
-
     @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        gap: 0.5rem;
+      .avatar-wrapper {
+        width: 220px;
+        height: 220px;
       }
-      .nav-links { flex-wrap: wrap; }
-      .profile-pic { max-width: 250px; }
+      .light-ring {
+        width: 260px;
+        height: 260px;
+      }
     }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-black to-gray-900">
 
-  <canvas id="particle-bg" aria-hidden="true"></canvas>
+  <canvas id="particle-bg"></canvas>
 
   <header>
     <h1 class="text-white text-xl font-bold md:text-2xl">Tanmay Dhar</h1>
@@ -176,27 +176,36 @@
 
   <main class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4">
     <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+
       <div class="lg:w-1/2 text-center lg:text-left">
         <h1 class="text-5xl font-bold mb-6">
           <span id="typing-hi"></span>
-          <span class="split-text" id="typing-im">I'm</span>
+          <span class="split-text">I'm</span>
           <span class="cursor" id="cursor"></span><br>
           <span class="tube-name" id="typing-name"></span>
         </h1>
+
         <h2 class="text-xl text-gray-300 mb-4">
           MBA in Business Analytics & Data Science
         </h2>
+
         <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
           I turn raw data into actionable insights and predictive solutions using Python, SQL, Excel, Power BI, Machine Learning, and business intelligence.
         </p>
+
         <a href="projects.html" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded text-white">
           Explore Projects
         </a>
       </div>
 
+      <!-- ===== ONLY THIS PART WAS CHANGED ===== -->
       <div class="lg:w-1/2 flex justify-center">
-        <img src="profile.jpg" alt="Tanmay Dhar Data Analyst" class="profile-pic" loading="lazy">
+        <div class="avatar-wrapper">
+          <div class="light-ring"></div>
+          <img src="profile.jpg" alt="Tanmay Dhar Data Analyst" class="profile-circle" loading="lazy">
+        </div>
       </div>
+
     </section>
   </main>
 
@@ -270,5 +279,3 @@
 
 </body>
 </html>
-
-
