@@ -11,7 +11,7 @@
   <meta name="keywords" content="Tanmay Dhar, Data Analyst, Business Analytics, Data Science, Portfolio">
   <meta name="author" content="Tanmay Dhar">
 
-  <!-- Google Analytics (GA4) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXPZ2M5YSY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,94 +20,55 @@
     gtag('config', 'G-RXPZ2M5YSY');
   </script>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <!-- Google Fonts -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary-color: #38f8aa;
-      --accent-color: #c084fc;
-      --bg-dark: #0f0f1b;
-      --text-light: #e5e7eb;
+      --primary: #38f8aa;
+      --accent: #c084fc;
+      --bg: #0f0f1b;
+      --text: #e5e7eb;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-      margin: 0;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
     }
 
+    /* Header */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #ccc;
-      margin-left: 1rem;
-      transition: color 0.3s ease;
-      font-size: 1rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-color);
+      backdrop-filter: blur(12px);
     }
 
     .tube-name {
-      color: var(--text-light);
-      text-shadow:
-        0 0 5px var(--accent-color),
-        0 0 10px var(--accent-color),
-        0 0 20px var(--accent-color);
-      font-weight: 900;
+      text-shadow: 0 0 5px var(--accent),
+                   0 0 15px var(--accent),
+                   0 0 30px var(--accent);
     }
 
-    .split-text {
-      font-weight: 700;
-      color: var(--primary-color);
-    }
-
-    /* ===== NEW PROFILE IMAGE STYLES (ONLY ADDITION) ===== */
+    /* Avatar */
     .avatar-wrapper {
       position: relative;
-      width: 300px;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 220px;
+      height: 220px;
     }
 
     .light-ring {
       position: absolute;
-      width: 340px;
-      height: 340px;
+      inset: -20px;
       border-radius: 50%;
-      background: conic-gradient(
-        transparent,
-        #38f8aa,
-        #c084fc,
-        transparent
-      );
-      filter: blur(18px);
+      background: conic-gradient(transparent, var(--primary), var(--accent), transparent);
+      filter: blur(14px);
       animation: spin 6s linear infinite;
-      z-index: 0;
     }
 
     .profile-circle {
@@ -115,167 +76,187 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
+      position: relative;
       z-index: 1;
-      box-shadow: 0 0 25px rgba(192,132,252,0.5);
+      box-shadow: 0 0 25px rgba(192,132,252,.5);
+    }
+
+    @media (min-width: 1024px) {
+      .avatar-wrapper {
+        width: 300px;
+        height: 300px;
+      }
+      .light-ring {
+        inset: -25px;
+        filter: blur(18px);
+      }
     }
 
     @keyframes spin {
-      from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    #particle-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-    }
-
+    /* Cursor */
     .cursor {
-      display: inline-block;
       width: 2px;
       height: 1.2em;
-      background-color: var(--primary-color);
-      animation: blink 0.7s infinite;
-      margin-left: 2px;
+      background: var(--primary);
+      display: inline-block;
+      animation: blink .8s infinite;
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
 
-    @media (max-width: 640px) {
-      .avatar-wrapper {
-        width: 220px;
-        height: 220px;
-      }
-      .light-ring {
-        width: 260px;
-        height: 260px;
-      }
+    /* Particle canvas */
+    #particle-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
     }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-black to-gray-900">
+<body>
 
-  <canvas id="particle-bg"></canvas>
+<!-- Particle Background -->
+<canvas id="particle-bg"></canvas>
 
-  <header>
-    <h1 class="text-white text-xl font-bold md:text-2xl">Tanmay Dhar</h1>
-    <nav class="nav-links">
-      <a href="index.html" class="text-purple-400 font-semibold">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-black/40 px-4 py-3 flex items-center justify-between">
+  <h1 class="font-bold text-lg">Tanmay Dhar</h1>
 
-  <main class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4">
-    <section class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+  <!-- Desktop Nav -->
+  <nav class="hidden md:flex gap-6 text-gray-300">
+    <a href="index.html" class="text-purple-400 font-semibold">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-      <div class="lg:w-1/2 text-center lg:text-left">
-        <h1 class="text-5xl font-bold mb-6">
-          <span id="typing-hi"></span>
-          <span class="split-text">I'm</span>
-          <span class="cursor" id="cursor"></span><br>
-          <span class="tube-name" id="typing-name"></span>
-        </h1>
+  <!-- Mobile Button -->
+  <button id="menuBtn" class="md:hidden text-xl">
+    <i class="fas fa-bars"></i>
+  </button>
+</header>
 
-        <h2 class="text-xl text-gray-300 mb-4">
-          MBA in Business Analytics & Data Science
-        </h2>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/90 hidden flex-col items-center justify-center gap-8 text-xl z-40">
+  <a href="index.html" class="text-purple-400">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+</div>
 
-        <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
-          I turn raw data into actionable insights and predictive solutions using Python, SQL, Excel, Power BI, Machine Learning, and business intelligence.
-        </p>
+<!-- Main -->
+<main class="min-h-screen flex items-center justify-center pt-28 px-4">
+  <section class="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12">
 
-        <a href="projects.html" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded text-white">
-          Explore Projects
-        </a>
+    <!-- Text -->
+    <div class="lg:w-1/2 text-center lg:text-left">
+      <h1 class="font-bold mb-4" style="font-size:clamp(2.2rem,6vw,3.5rem)">
+        <span id="typing-hi"></span>
+        <span class="text-green-400">I'm</span><br>
+        <span class="tube-name" id="typing-name"></span>
+      </h1>
+
+      <h2 class="text-gray-300 mb-4">
+        MBA in Business Analytics & Data Science
+      </h2>
+
+      <p class="text-gray-400 mb-6 max-w-md mx-auto lg:mx-0">
+        I turn raw data into actionable insights using Python, SQL, Excel,
+        Power BI, Machine Learning and Business Intelligence.
+      </p>
+
+      <a href="projects.html"
+         class="inline-block bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-full text-white">
+        Explore Projects
+      </a>
+    </div>
+
+    <!-- Avatar -->
+    <div class="lg:w-1/2 flex justify-center">
+      <div class="avatar-wrapper">
+        <div class="light-ring"></div>
+        <img src="profile.jpg" alt="Tanmay Dhar" class="profile-circle">
       </div>
+    </div>
 
-      <!-- ===== ONLY THIS PART WAS CHANGED ===== -->
-      <div class="lg:w-1/2 flex justify-center">
-        <div class="avatar-wrapper">
-          <div class="light-ring"></div>
-          <img src="profile.jpg" alt="Tanmay Dhar Data Analyst" class="profile-circle" loading="lazy">
-        </div>
-      </div>
+  </section>
+</main>
 
-    </section>
-  </main>
+<!-- Scripts -->
+<script>
+  /* Mobile menu */
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
 
-  <script>
-    const canvas = document.getElementById("particle-bg");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-    const isMobile = window.innerWidth <= 640;
-    const particleCount = isMobile ? 100 : 200;
+  /* Typing */
+  const hiText = "Hi, ";
+  const nameText = "Tanmay Dhar";
+  const hiEl = document.getElementById("typing-hi");
+  const nameEl = document.getElementById("typing-name");
 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  async function type(el, text) {
+    for (let c of text) {
+      el.textContent += c;
+      await new Promise(r => setTimeout(r, 120));
     }
-    window.addEventListener("resize", resize);
-    resize();
+  }
+  (async () => {
+    await type(hiEl, hiText);
+    await type(nameEl, nameText);
+  })();
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 1.5;
-        this.speedY = Math.random() * 0.7;
-      }
-      update() {
-        this.y += this.speedY;
-        if (this.y > canvas.height) this.y = 0;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.6)";
-        ctx.fill();
-      }
+  /* Particles */
+  const canvas = document.getElementById("particle-bg");
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+
+  function resize() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+  }
+  window.onresize = resize;
+  resize();
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.r = Math.random() * 1.5;
+      this.s = Math.random() * .6;
     }
-
-    function init() {
-      particles = [];
-      for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+    update() {
+      this.y += this.s;
+      if (this.y > canvas.height) this.y = 0;
     }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      requestAnimationFrame(animate);
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,.6)";
+      ctx.fill();
     }
+  }
 
-    init();
-    animate();
+  function init() {
+    particles = [];
+    const count = innerWidth < 640 ? 100 : 200;
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
 
-    const hi = "Hi, ";
-    const name = "Tanmay Dhar";
-    let hiEl = document.getElementById("typing-hi");
-    let nameEl = document.getElementById("typing-name");
-    let cursor = document.getElementById("cursor");
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
 
-    async function type(el, text) {
-      for (let c of text) {
-        el.textContent += c;
-        await new Promise(r => setTimeout(r, 120));
-      }
-    }
-
-    async function start() {
-      await type(hiEl, hi);
-      await type(nameEl, name);
-      cursor.style.display = "none";
-    }
-    start();
-  </script>
+  init();
+  animate();
+</script>
 
 </body>
 </html>
