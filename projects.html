@@ -4,389 +4,385 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Tanmay Dhar</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --gold: #C9A84C;
-      --gold-light: #E8C97A;
-      --green: #2D6A4F;
-      --green-mid: #40916C;
-      --green-light: #74C69D;
-      --white: #FAFAF7;
-      --off-white: #F0EEE8;
-      --dark: #1a1a18;
-      --text-main: #2C2C2A;
-      --text-muted: #6B6B65;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f1b;
+      color: #e5e7eb;
+      overflow-x: hidden;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text-main); overflow-x: hidden; }
+
+    canvas#particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
     header {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      padding: 20px 60px; display: flex; align-items: center; justify-content: space-between;
-      background: rgba(250,250,247,0.92); backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 rgba(201,168,76,0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      z-index: 50;
     }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
-    .logo span { color: var(--gold); }
-    nav { display: flex; gap: 36px; align-items: center; }
-    nav a { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; position: relative; transition: color 0.3s; }
-    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
-    nav a:hover { color: var(--green); }
-    nav a.active { color: var(--green); }
-    nav a.active::after { width: 100%; }
-    .nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 2px; }
-    .nav-cta:hover { background: var(--green-mid) !important; }
-    .nav-cta::after { display: none !important; }
-    #menuBtn { display: none; background: none; border: none; cursor: pointer; font-size: 1.25rem; color: var(--text-main); }
-    #mobileMenu { display: flex; position: fixed; top: 0; right: 0; height: 100vh; width: 260px; background: var(--white); box-shadow: -4px 0 30px rgba(0,0,0,0.1); flex-direction: column; padding: 80px 40px 40px; gap: 28px; z-index: 200; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.77,0,0.175,1); }
-    #mobileMenu.open { transform: translateX(0); }
-    #mobileMenu a { font-size: 1rem; font-weight: 500; color: var(--text-main); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 8px; border-bottom: 1px solid var(--off-white); }
-    #mobileMenu a.active { color: var(--green); }
 
-    .page-hero {
-      padding: 140px 60px 70px;
-      background: linear-gradient(135deg, var(--white) 60%, rgba(116,198,157,0.08));
-      position: relative; overflow: hidden;
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-align: center;
     }
-    .page-hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(201,168,76,0.07); filter: blur(60px); }
-    .page-hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .page-hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
-    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 700; color: var(--text-main); line-height: 1.1; }
-    .page-hero h1 em { font-style: italic; color: var(--green); }
 
-    .max-w { max-width: 1200px; margin: 0 auto; }
-
-    /* FILTER TABS */
-    .filter-wrap { padding: 0 60px 40px; }
-    .filters { display: flex; gap: 10px; flex-wrap: wrap; }
-    .filter-btn {
-      padding: 9px 20px; border-radius: 3px; border: 1.5px solid rgba(45,106,79,0.2);
-      background: transparent; color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.25s;
-    }
-    .filter-btn:hover, .filter-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
-
-    /* PROJECTS GRID */
-    .projects-section { padding: 0 60px 100px; }
     .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
 
     .proj-card {
-      border: 1px solid rgba(201,168,76,0.2); border-radius: 10px; overflow: hidden;
-      background: var(--white); transition: all 0.35s; position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
     }
-    .proj-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(45,106,79,0.15); border-color: var(--gold); }
 
-    .proj-img-wrap { position: relative; overflow: hidden; height: 200px; }
-    .proj-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .proj-card:hover .proj-img-wrap img { transform: scale(1.06); }
-
-    .proj-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(45,106,79,0.88), transparent);
-      opacity: 0; transition: opacity 0.35s; display: flex; align-items: flex-end; padding: 16px;
+    .proj-card:hover {
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+      transform: translateY(-5px);
     }
-    .proj-card:hover .proj-overlay { opacity: 1; }
-    .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-    .proj-overlay-tag { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: var(--white); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 3px; }
 
-    .proj-body { padding: 22px; }
-    .proj-category { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .proj-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.3; }
-    .proj-desc { font-size: 0.855rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 18px; }
-    .proj-links { display: flex; gap: 10px; }
-    .proj-link {
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      text-decoration: none; padding: 8px 16px; border-radius: 3px; transition: all 0.25s; display: flex; align-items: center; gap: 6px;
+    .proj-card img.card-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
     }
-    .proj-link.gh { background: var(--off-white); color: var(--text-main); border: 1px solid rgba(0,0,0,0.08); }
-    .proj-link.gh:hover { background: var(--text-main); color: var(--white); }
-    .proj-link.live { background: var(--green); color: var(--white); }
-    .proj-link.live:hover { background: var(--green-mid); }
-    .proj-link.gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.35); color: var(--gold); }
-    .proj-link.gold:hover { background: var(--gold); color: var(--white); }
 
-    /* Dashboards feature card */
-    .feature-card {
-      grid-column: span 2;
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      border: 1px solid rgba(201,168,76,0.3); border-radius: 12px; overflow: hidden;
-      background: linear-gradient(135deg, #f8f7f3, #edf7f0); transition: all 0.35s;
+    .proj-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1 1 auto;
     }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(45,106,79,0.15); border-color: var(--gold); }
-    .feature-card .proj-img-wrap { height: 100%; min-height: 220px; }
-    .feature-card .proj-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .proj-info h3 {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
 
-    footer { background: #111110; color: rgba(255,255,255,0.35); text-align: center; padding: 24px 60px; font-size: 0.8rem; display: flex; align-items: center; justify-content: space-between; }
-    footer a { color: var(--gold); text-decoration: none; }
+    .proj-info p {
+      font-size: 15px;
+      color: #ccc;
+      margin: 0;
+      flex: 1 1 auto;
+    }
 
-    @media (max-width: 900px) {
-      header { padding: 18px 24px; }
-      nav { display: none; }
-      #menuBtn { display: block; }
-      .page-hero { padding: 120px 24px 50px; }
-      .filter-wrap { padding: 0 24px 32px; }
-      .projects-section { padding: 0 24px 80px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .feature-card { grid-column: span 1; grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 8px; }
+    .proj-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-link {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      color: #e6e6e6;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-link:hover { transform: translateY(-3px); }
+
+    @keyframes morphFade {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      10% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      90% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+    }
+
+    .dashboard-slide {
+      display: none;
+      width: 100%;
+      height: 400px;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .dashboard-slide.active {
+      display: block;
+      animation: morphFade 12s infinite;
+    }
+
+    @keyframes snow {
+      0% { transform: translateY(0px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: snow linear infinite;
     }
   </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-black to-gray-900">
+  <!-- Particle Background -->
+  <canvas id="particle-bg"></canvas>
 
-<header>
-  <a href="index.html" class="logo">Tanmay<span>.</span></a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html" class="active">Projects</a>
-    <a href="contact.html" class="nav-cta">Contact</a>
-  </nav>
-  <button id="menuBtn"><i class="fas fa-bars"></i></button>
-</header>
+  <!-- Header -->
+  <header class="w-full py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-white text-xl font-bold">Tanmay Dhar</a>
+      <nav class="space-x-6 hidden md:flex text-gray-300 font-medium">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="projects.html" class="text-white border-b-2 border-purple-500">Projects</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<div id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="contact.html">Contact</a>
-</div>
-
-<div class="page-hero">
-  <div class="max-w" style="max-width:1200px;margin:0 auto;">
-    <div class="page-hero-tag">My Work</div>
-    <h1>Data <em>Projects</em></h1>
-  </div>
-</div>
-
-<div class="filter-wrap max-w" style="max-width:1200px;margin:0 auto;">
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All Projects</button>
-    <button class="filter-btn" data-filter="ml">Machine Learning</button>
-    <button class="filter-btn" data-filter="viz">Data Visualization</button>
-    <button class="filter-btn" data-filter="nlp">NLP</button>
-    <button class="filter-btn" data-filter="dashboard">Dashboard</button>
-  </div>
-</div>
-
-<div class="projects-section max-w" style="max-width:1200px;margin:0 auto;">
-  <div class="projects-grid" id="projectsGrid">
-
-    <div class="proj-card reveal" data-cat="ml viz">
-      <div class="proj-img-wrap">
-        <img src="EV.jpeg" alt="EV Market Forecast">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">Time Series</span>
-            <span class="proj-overlay-tag">Analytics</span>
+  <!-- Projects Section -->
+  <main class="container mx-auto px-6 pt-32 pb-16">
+    <section class="projects-section">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="proj-card" onclick="window.open('https://github.com/TanmayDhar36/Forecasting-India-s-UQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw','_blank')">
+          <img src="EV.jpeg" alt="EV Market Forecast" class="card-thumb">
+          <div class="proj-info">
+            <h3>Forecasting India's EV Future</h3>
+            <p>Comprehensive analytics study forecasting EV adoption trends in India.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/Forecasting-India-s-UQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Market Analytics</div>
-        <h3 class="proj-title">Forecasting India's EV Future</h3>
-        <p class="proj-desc">Comprehensive analytics study forecasting EV adoption trends across Indian markets using predictive modelling and visual storytelling.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36/Forecasting-India-s-UQBNOrnQlzo3ftqm0Jj5Sf9zEHlPApapd-rWsAHREzkweiTw" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="ml">
-      <div class="proj-img-wrap">
-        <img src="HandSign.jpeg" alt="Hand Sign Detection">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">Computer Vision</span>
-            <span class="proj-overlay-tag">OpenCV</span>
+        <div class="proj-card">
+          <img src="HandSign.jpeg" alt="Hand Sign Language Detection" class="card-thumb">
+          <div class="proj-info">
+            <h3>🤟 Hand Sign Language Detection</h3>
+            <p>Real-time ASL prediction using MediaPipe, OpenCV and ML models. Deployed with Gradio for webcam demo.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/HAND-SIGN-LANGUAGE-DETECTION" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Computer Vision</div>
-        <h3 class="proj-title">Hand Sign Language Detection</h3>
-        <p class="proj-desc">Real-time ASL prediction using MediaPipe, OpenCV and ML models. Deployed with Gradio for live webcam demonstration.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="ml dashboard">
-      <div class="proj-img-wrap">
-        <img src="AQI.jpeg" alt="AQI Prediction">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">Time Series</span>
-            <span class="proj-overlay-tag">Dashboard</span>
+        <div class="proj-card">
+          <img src="WaterQuality.png" alt="Water Quality Analysis" class="card-thumb">
+          <div class="proj-info">
+            <h3>Water Quality Analysis</h3>
+            <p>ML case study predicting water potability based on chemical attributes.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/ML-Case-Study-on-Water-Quality-Analysis" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Environmental Analytics</div>
-        <h3 class="proj-title">India's Air Quality Index Prediction</h3>
-        <p class="proj-desc">Time-series & ML models forecasting AQI across major Indian cities, with interactive dashboard and model explainability.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="ml">
-      <div class="proj-img-wrap">
-        <img src="WaterQuality.png" alt="Water Quality">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">Classification</span>
-            <span class="proj-overlay-tag">Ensemble</span>
+        <div class="proj-card">
+          <img src="BikeShare.jpeg" alt="Bike Sharing Prediction" class="card-thumb">
+          <div class="proj-info">
+            <h3>Bike Sharing Demand Prediction</h3>
+            <p>Regression model to forecast hourly bike rentals based on weather.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/ML_Bike_Sharing_Demand_Prediction_Regression_Project" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Health Analytics</div>
-        <h3 class="proj-title">Water Quality Analysis</h3>
-        <p class="proj-desc">ML case study predicting water potability based on chemical attributes using ensemble classification algorithms.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="nlp">
-      <div class="proj-img-wrap">
-        <img src="TwitterSentiment.jpeg" alt="Twitter Sentiment">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">NLP</span>
-            <span class="proj-overlay-tag">Sentiment</span>
+        <div class="proj-card">
+          <img src="Dashboard2.png" alt="Sales Analysis" class="card-thumb">
+          <div class="proj-info">
+            <h3>Sales Data Analysis</h3>
+            <p>Tableau dashboard-driven insights from sales transactions using Python & Tableau.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/Sales_Data_Analysis_Afame_Technology" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Natural Language Processing</div>
-        <h3 class="proj-title">Twitter Sentiment Analysis</h3>
-        <p class="proj-desc">Sentiment classification of tweets using NLP pipelines. Live demo showing sentiment distribution and word cloud visuals.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="ml">
-      <div class="proj-img-wrap">
-        <img src="BikeShare.jpeg" alt="Bike Share">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">Regression</span>
-            <span class="proj-overlay-tag">Forecasting</span>
+        <div class="proj-card">
+          <img src="Dashboard.png" alt="Google Play EDA" class="card-thumb">
+          <div class="proj-info">
+            <h3>Google Play Store App Review Analysis</h3>
+            <p>Python-based EDA and Tableau dashboards to uncover app feedback patterns.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/Google_Play_Store_App_Review_Analysis" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Predictive Modelling</div>
-        <h3 class="proj-title">Bike Sharing Demand Prediction</h3>
-        <p class="proj-desc">Regression model to forecast hourly bike rentals based on weather conditions, seasonality, and temporal patterns.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="dashboard viz">
-      <div class="proj-img-wrap">
-        <img src="Dashboard.png" alt="Sales Dashboard">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">Tableau</span>
-            <span class="proj-overlay-tag">Python</span>
+        <!-- NEW: AQI Prediction -->
+        <div class="proj-card">
+          <img src="AQI.jpeg" alt="India AQI Prediction" class="card-thumb">
+          <div class="proj-info">
+            <h3>India's Air Quality Index Prediction</h3>
+            <p>Time-series & ML models to forecast AQI across major Indian cities. Includes dashboard and model explainability.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/AQI_Prediction" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn-link" href="https://tanmaydhar36-aqipredindiatanmay.hf.space/" target="_blank" rel="noopener">Try Live</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category">Business Intelligence</div>
-        <h3 class="proj-title">Sales Data Analysis</h3>
-        <p class="proj-desc">Tableau dashboard-driven insights from sales transactions using Python for data wrangling and Tableau for storytelling.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="proj-card reveal" data-cat="nlp viz">
-      <div class="proj-img-wrap">
-        <img src="Dashboard2.png" alt="Google Play Analysis">
-        <div class="proj-overlay">
-          <div class="proj-tags">
-            <span class="proj-overlay-tag">EDA</span>
-            <span class="proj-overlay-tag">Tableau</span>
+        <!-- NEW: Twitter Sentiment -->
+        <div class="proj-card">
+          <img src="TwitterSentiment.jpeg" alt="Twitter Sentiment Analysis" class="card-thumb">
+          <div class="proj-info">
+            <h3>Twitter Sentiment Analysis</h3>
+            <p>Sentiment classification of tweets using NLP pipelines. Live demo shows sentiment distribution and word clouds.</p>
+            <div class="proj-actions">
+              <a class="btn-link" href="https://github.com/TanmayDhar36/TwitterSentimentAnalysis" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn-link" href="https://twettersentimentanalysis.onrender.com/" target="_blank" rel="noopener">Try Live</a>
+            </div>
           </div>
         </div>
+
       </div>
-      <div class="proj-body">
-        <div class="proj-category">Text Analytics</div>
-        <h3 class="proj-title">Google Play Store App Review Analysis</h3>
-        <p class="proj-desc">Python-based EDA and Tableau dashboards to uncover patterns in app feedback, ratings, and user sentiment.</p>
-        <div class="proj-links">
-          <a class="proj-link gh" href="https://github.com/TanmayDhar36" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
+    </section>
+
+    <!-- More Dashboards Section -->
+    <section class="dashboards-section mt-16">
+      <h2 class="section-title">More Dashboards</h2>
+      <div class="relative w-full overflow-hidden h-[400px]">
+        <img src="unemployment_dashboard.jpeg" alt="Unemployment Dashboard" class="dashboard-slide" data-index="0">
+        <img src="upi_transaction_dashboard.jpeg" alt="UPI Transaction Dashboard" class="dashboard-slide" data-index="1">
+        <img src="orderflow_dashboard.jpeg" alt="Orderflow Dashboard" class="dashboard-slide" data-index="2">
+        <img src="hr_analytics_dashboard.jpeg" alt="HR Analytics Dashboard" class="dashboard-slide" data-index="3">
       </div>
-    </div>
+    </section>
+  </main>
 
-  </div>
-</div>
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-400 text-sm">
+    © 2025 Tanmay Dhar. All rights reserved.
+  </footer>
 
-<footer>
-  <span>© 2025 Tanmay Dhar. All rights reserved.</span>
-  <span>Built with <span style="color: var(--gold);">♥</span> in Kolkata</span>
-  <a href="TanmayDharCV.pdf" download>Download CV</a>
-</footer>
+  <!-- Particle and Snowflake Animation Script -->
+  <script>
+    const canvas = document.getElementById("particle-bg");
+    const ctx = canvas.getContext("2d");
 
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-  document.addEventListener('click', e => {
-    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target))
-      mobileMenu.classList.remove('open');
-  });
+    let particles = [];
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", resize);
+    resize();
 
-  // Filter
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.proj-card');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      cards.forEach(card => {
-        if (filter === 'all' || card.dataset.cat.includes(filter)) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 1.5;
+        this.speedY = Math.random() * 0.5 + 0.5;
+      }
+
+      update() {
+        this.y += this.speedY;
+        if (this.y > canvas.height) {
+          this.y = 0;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particles = [];
+      for (let i = 0; i < 200; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.style.width = `${Math.random() * 3 + 2}px`;
+      snowflake.style.height = snowflake.style.width;
+      snowflake.style.left = `${Math.random() * 100}vw`;
+      snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+
+    setInterval(createSnowflake, 200);
+
+    // Dashboard Slideshow Script
+    const slides = document.querySelectorAll('.dashboard-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
         }
       });
-    });
-  });
+    }
 
-  // Reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = `${i * 0.08}s`;
-    observer.observe(el);
-  });
-</script>
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Start slideshow
+    showSlide(currentSlide);
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+  </script>
 </body>
 </html>
